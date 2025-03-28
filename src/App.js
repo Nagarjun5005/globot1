@@ -7,6 +7,7 @@ import Login from './Pages/Login'
 import Register from './Pages/Register'
 import ReferralPortal from './Pages/ReferralPortal';
 import Layout from './Components/Layout';
+import InternalJob from './Pages/InternalJob';
 
 
 
@@ -30,6 +31,7 @@ const AppRoutes = () => {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/referral" element={<ReferralPortal />} />
             <Route path="/careers" element={<Learnings/>} />
+            <Route path="/internaljobportal" element={<InternalJob/>} />
           </Routes>
         </Layout>
       )}

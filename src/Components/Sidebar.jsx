@@ -17,6 +17,7 @@ const Sidebar = () => {
     { title: 'Careers', path: '/careers', src: <MdFeed /> },
     { title: 'Profile', path: '/profile', src: <FaUser /> },
     { title: 'Referral Portal', path: '/referral', src: <IoPeopleSharp /> },
+    { title: 'IJB', path: '/internaljobportal', src: <IoPeopleSharp /> },
     { title: 'Logout', path: '/login', src: <IoPeopleSharp />, gap: 'true' },
     
   ]
