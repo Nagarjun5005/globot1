@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Learnings from './Pages/Learnings'
+import Dashboard from './Pages/Dashboard'
+import ProfilePage from './Pages/ProfilePage'
+import Login from './Pages/Login'
+import Register from './Pages/Register'
+import ReferralPortal from './Pages/ReferralPortal';
+import Layout from './Components/Layout';
 
-function App() {
+
+
+const AppRoutes = () => {
+  const location = useLocation();
+  
+  // Routes where Layout should not be displayed
+  const hideLayout = location.pathname === '/login' || location.pathname === '/register';
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {hideLayout ? (
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      ) : (
+        <Layout>
+          <Routes>
+          <Route path="/" element={<Dashboard />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/referral" element={<ReferralPortal />} />
+            <Route path="/careers" element={<Learnings/>} />
+          </Routes>
+        </Layout>
+      )}
+     
+    </>
   );
-}
+};
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
+};
 
 export default App;
